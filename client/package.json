@@ -1,0 +1,26 @@
+{
+  "name": "nextjs-sanity-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A starter template for building a Next.js app using Sanity's CMS.",
+  "main": "package.json",
+  "author": "Hassan Corrigan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "nextjs",
+    "next",
+    "sanity",
+    "cms",
+    "app"
+  ],
+  "dependencies": {
+    "next": "^10.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
