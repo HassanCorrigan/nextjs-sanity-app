@@ -1,0 +1,12 @@
+.welcomeSection {
+  padding: 1rem;
+}
+
+.recentPostsSection {
+  padding: 1rem;
+}
+
+.recentPostsSection a {
+  color: var(--main-color);
+  text-decoration: none;
+}

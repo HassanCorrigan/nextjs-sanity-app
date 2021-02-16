@@ -1,0 +1,14 @@
+.post {
+  display: block;
+  background-color: var(--secondary-bg-color);
+  color: var(--highlight-color);
+  text-decoration: none;
+  margin: 2rem 0;
+}
+
+.cover {
+  width: 100%;
+}
+.title {
+  padding: 1rem;
+}

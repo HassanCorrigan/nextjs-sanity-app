@@ -1,21 +1,20 @@
 import Link from 'next/link';
 import Client from 'config/sanity';
 import Layout from 'components/Layout';
-import styles from 'styles/index.module.css';
+import styles from 'styles/posts.module.css';
 
-const Home = ({ posts }) => {
+const Posts = ({ posts }) => {
+  console.log(posts);
   return (
     <Layout>
-      <section className={styles.welcomeSection}>
-        <h1>Home</h1>
-      </section>
-      <section className={styles.recentPostsSection}>
-        <h1>Recent Posts</h1>
+      <section>
+        <h1>Posts</h1>
         <div>
           {posts.map((post, index) => (
             <Link href={`/posts/${post._id}`} key={index}>
-              <a>
-                <h2>{post.title}</h2>
+              <a className={styles.post}>
+                <img className={styles.cover} src={post.cover.url} alt='' />
+                <h2 className={styles.title}>{post.title}</h2>
               </a>
             </Link>
           ))}
@@ -27,7 +26,7 @@ const Home = ({ posts }) => {
 
 export async function getStaticProps() {
   const query =
-    '*[_type=="post"][0..2]{_id, title, date, "cover": cover.asset->{url}, author->{name}} | order(date desc)';
+    '*[_type=="post"]{_id, title, date, "cover": cover.asset->{url}, author->{name}} | order(date desc)';
   const posts = await Client.fetch(query);
 
   return {
@@ -37,4 +36,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default Posts;
