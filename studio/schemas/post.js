@@ -20,6 +20,16 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: Rule => Rule.required(),
+    },
+    {
       title: 'Date',
       name: 'date',
       type: 'datetime',
@@ -29,6 +39,7 @@ export default {
       title: 'Cover Image',
       name: 'cover',
       type: 'image',
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Content',

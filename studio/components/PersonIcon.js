@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PersonIcon = props => {
+const PersonIcon = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

@@ -13,7 +13,7 @@ const Home = ({ posts }) => {
         <h1>Recent Posts</h1>
         <div>
           {posts.map((post, index) => (
-            <Link href={`/posts/${post._id}`} key={index}>
+            <Link href={`/posts/${post.slug}`} key={index}>
               <a>
                 <h2>{post.title}</h2>
               </a>
@@ -27,7 +27,7 @@ const Home = ({ posts }) => {
 
 export async function getStaticProps() {
   const query =
-    '*[_type=="post"][0..2]{_id, title, date, "cover": cover.asset->{url}, author->{name}} | order(date desc)';
+    '*[_type=="post"]{title, "slug": slug.current, date, author->{name}} | order(date desc)';
   const posts = await Client.fetch(query);
 
   return {

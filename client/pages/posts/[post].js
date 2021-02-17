@@ -23,15 +23,15 @@ const Post = ({ post }) => {
 };
 
 export async function getStaticPaths() {
-  const query = '*[_type=="post"] {_id}';
+  const query = '*[_type=="post"] {"slug": slug.current}';
   const posts = await Client.fetch(query);
-  const paths = posts.map(post => `/posts/${post._id}`);
+  const paths = posts.map(post => `/posts/${post.slug}`);
 
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type=="post" && _id=="${params.post}"] {_id, title, date, "cover": cover.asset->{url}, author->{name}}`;
+  const query = `*[_type=="post" && slug.current=="${params.post}"] {title, date, "cover": cover.asset->{url}, author->{name}}`;
   const post = await Client.fetch(query);
 
   return {
