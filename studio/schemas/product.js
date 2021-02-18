@@ -22,8 +22,8 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Details',
-      name: 'details',
+      title: 'Description',
+      name: 'description',
       type: 'text',
       validation: Rule => Rule.required(),
     },

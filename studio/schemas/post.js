@@ -30,12 +30,6 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Date',
-      name: 'date',
-      type: 'datetime',
-      validation: Rule => Rule.required(),
-    },
-    {
       title: 'Cover Image',
       name: 'cover',
       type: 'image',
@@ -60,6 +54,12 @@ export default {
       name: 'author',
       type: 'reference',
       to: [{ type: 'person' }],
+    },
+    {
+      title: 'Date',
+      name: 'date',
+      type: 'datetime',
+      validation: Rule => Rule.required(),
     },
   ],
 };

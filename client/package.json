@@ -19,6 +19,7 @@
     "app"
   ],
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^2.2.6",
     "next": "^10.0.6",
     "react": "^17.0.1",

@@ -3,14 +3,14 @@ import Layout from 'components/Layout';
 import styles from 'styles/product.module.css';
 
 const Product = ({ product }) => {
+  const { name, photo, description, price } = product;
+
   return (
     <Layout>
-      <h1>{product.name}</h1>
-      <img
-        className={styles.productPhoto}
-        src={product.image.url}
-        alt={product.name}
-      />
+      <h1>{name}</h1>
+      <img className={styles.productPhoto} src={photo} alt={name} />
+      <p>{description}</p>
+      <p>&euro;{price}</p>
     </Layout>
   );
 };
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type=="product" && _id=="${params.product}"] {_id, "image": image.asset->{url}, name, details, price}`;
+  const query = `*[_type=="product" && _id=="${params.product}"] {_id, "photo": image.asset->url, name, description, price}`;
   const product = await Client.fetch(query);
 
   return {

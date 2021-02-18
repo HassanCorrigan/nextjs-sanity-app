@@ -1,21 +1,28 @@
+import BlockContent from '@sanity/block-content-to-react';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
 import styles from 'styles/post.module.css';
 
 const Post = ({ post }) => {
+  const { title, date, author, cover, content } = post;
+  const { projectId, dataset } = Client.config();
   return (
     <Layout>
       <section>
         <article className={styles.post}>
-          <h1 className={styles.title}>{post.title}</h1>
+          <h1 className={styles.title}>{title}</h1>
           <span className={styles.meta}>
-            {formatDate(post.date)} - {post.author.name}
+            {formatDate(date)} - {author}
           </span>
 
-          {post.cover && (
-            <img className={styles.cover} src={post.cover.url} alt='' />
-          )}
+          <img className={styles.cover} src={cover} alt='' />
+          <BlockContent
+            className={styles.content}
+            blocks={content}
+            projectId={projectId}
+            dataset={dataset}
+          />
         </article>
       </section>
     </Layout>
@@ -31,7 +38,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type=="post" && slug.current=="${params.post}"] {title, date, "cover": cover.asset->{url}, author->{name}}`;
+  const query = `*[_type=="post" && slug.current=="${params.post}"] {title, "cover": cover.asset->url, content, "author": author->name, date}`;
   const post = await Client.fetch(query);
 
   return {

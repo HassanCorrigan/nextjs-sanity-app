@@ -14,11 +14,11 @@ const Store = ({ products }) => {
               <a>
                 <img
                   className={styles.productPhoto}
-                  src={product.image.url}
+                  src={product.image}
                   alt=''
                 />
                 <h2>{product.name}</h2>
-                <p>{product.details}</p>
+                <p>{product.description}</p>
                 <p>&euro;{product.price}</p>
               </a>
             </Link>
@@ -31,7 +31,7 @@ const Store = ({ products }) => {
 
 export async function getStaticProps() {
   const query =
-    '*[_type=="product"]{_id, "image": image.asset->{url}, name, details, price} | order(date desc)';
+    '*[_type=="product"]{_id, "image": image.asset->url, name, description, price} | order(date desc)';
   const products = await Client.fetch(query);
 
   return {

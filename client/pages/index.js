@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Client from 'config/sanity';
+import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
 import styles from 'styles/index.module.css';
 
@@ -16,6 +17,7 @@ const Home = ({ posts }) => {
             <Link href={`/posts/${post.slug}`} key={index}>
               <a>
                 <h2>{post.title}</h2>
+                <span>{formatDate(post.date)}</span>
               </a>
             </Link>
           ))}
@@ -27,7 +29,7 @@ const Home = ({ posts }) => {
 
 export async function getStaticProps() {
   const query =
-    '*[_type=="post"]{title, "slug": slug.current, date, author->{name}} | order(date desc)';
+    '*[_type=="post"]{"slug": slug.current, title, date} | order(date desc)';
   const posts = await Client.fetch(query);
 
   return {
