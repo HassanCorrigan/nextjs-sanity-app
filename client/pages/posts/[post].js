@@ -6,7 +6,7 @@ import styles from 'styles/post.module.css';
 
 const Post = ({ post }) => {
   const { title, date, author, cover, content } = post;
-  const { projectId, dataset } = Client.config();
+
   return (
     <Layout>
       <section>
@@ -15,14 +15,8 @@ const Post = ({ post }) => {
           <span className={styles.meta}>
             {formatDate(date)} - {author}
           </span>
-
           <img className={styles.cover} src={cover} alt='' />
-          <BlockContent
-            className={styles.content}
-            blocks={content}
-            projectId={projectId}
-            dataset={dataset}
-          />
+          <BlockContent className={styles.content} blocks={content} />
         </article>
       </section>
     </Layout>
@@ -38,7 +32,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type=="post" && slug.current=="${params.post}"] {title, "cover": cover.asset->url, content, "author": author->name, date}`;
+  const query = `*[_type=="post" && slug.current=="${params.post}"] {
+    title, 
+    "cover": cover.asset->url, 
+    content[]{
+      ..., asset->{
+        ..., "_key": _id
+      }
+    }, 
+    "author": author->name, 
+    date
+  }`;
+
   const post = await Client.fetch(query);
 
   return {

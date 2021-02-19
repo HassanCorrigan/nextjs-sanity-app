@@ -1,12 +1,73 @@
-.welcomeSection {
+.welcomeSection,
+.recentPostsSection,
+.featuredProductsSection {
   padding: 1rem;
 }
 
-.recentPostsSection {
-  padding: 1rem;
+/* Recent Posts */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.coverImage {
+  border-radius: var(--block-border-radius);
+}
+.postContent {
+  height: 100%;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.postTitle {
+  font-weight: 600;
+}
+.postMeta {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+.postMeta .profilePhoto {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+.postMeta .author {
+  font-weight: 600;
+}
+.postMeta .date {
+  color: var(--secondary-color);
 }
 
-.recentPostsSection a {
-  color: var(--main-color);
-  text-decoration: none;
+/* Featured Products */
+.product {
+  margin: 1rem 0;
+  padding: 1rem;
+  display: flex;
+  cursor: pointer;
+}
+.productPhoto {
+  border-radius: var(--block-border-radius);
+  width: 50%;
+}
+.productInfo {
+  padding: 0 1rem;
+}
+.productInfo p {
+  padding-bottom: 0.5rem;
+}
+.productInfo .name {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+.productInfo .price {
+  color: var(--highlight-color);
 }

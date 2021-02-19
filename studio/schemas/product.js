@@ -7,12 +7,16 @@ export default {
   icon: ProductIcon,
   initialValue: () => ({
     stock: true,
+    featured: false,
   }),
   fields: [
     {
       title: 'Product Image',
       name: 'image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
       validation: Rule => Rule.required(),
     },
     {
@@ -37,7 +41,12 @@ export default {
       title: 'In Stock',
       name: 'stock',
       type: 'boolean',
-      validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Featured',
+      name: 'featured',
+      type: 'boolean',
+      description: 'Featured products are displayed on the homepage.',
     },
   ],
 };

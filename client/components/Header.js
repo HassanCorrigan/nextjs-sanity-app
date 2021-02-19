@@ -3,8 +3,10 @@ import styles from 'styles/header.module.css';
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <h1>Logo</h1>
+    <header className={`${styles.header} block`}>
+      <Link href='/'>
+        <h1 className={styles.logo}>Logo</h1>
+      </Link>
       <nav>
         <Link href='/'>Home</Link>
         <Link href='/store'>Store</Link>

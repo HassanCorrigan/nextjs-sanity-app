@@ -33,6 +33,9 @@ export default {
       title: 'Cover Image',
       name: 'cover',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
       validation: Rule => Rule.required(),
     },
     {

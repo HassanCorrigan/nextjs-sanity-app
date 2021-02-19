@@ -13,5 +13,13 @@ export default {
       type: 'string',
       validation: Rule => Rule.required().min(4).max(70),
     },
+    {
+      title: 'Profile Photo',
+      name: 'photo',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 };

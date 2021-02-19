@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Quicksand:wght@400;500;600&display=swap');
+
 :root {
-  --main-color: rgb(0, 0, 0);
-  --main-bg-color: rgb(238, 238, 238);
-  --secondary-color: rgb(0, 0, 0);
+  --primary-color: rgb(31, 31, 31);
+  --primary-bg-color: rgb(238, 238, 238);
+  --secondary-color: rgb(48, 48, 48);
   --secondary-bg-color: rgb(255, 255, 255);
   --highlight-color: rgb(0, 0, 0);
+  --block-border-radius: 1rem;
+  --block-box-shadow-color: rgb(211, 211, 211);
 }
 
 * {
@@ -22,11 +26,14 @@ html {
 
 body {
   font-size: 1.5rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  color: var(--primary-color);
+  background-color: var(--primary-bg-color);
 }
 
 main {
-  background-color: var(--main-bg-color);
+  margin-top: 6rem;
   min-height: 90vh;
 }
 
@@ -41,4 +48,25 @@ h3 {
 }
 h4 {
   font-size: 2rem;
+}
+
+:is(h1, h2, h3, h4) {
+  font-family: 'Lora', serif;
+}
+
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.block {
+  color: var(--primary-color);
+  background-color: var(--secondary-bg-color);
+  padding: 0.75rem;
+  border-radius: var(--block-border-radius);
+  box-shadow: 0.1rem 0.1rem 1rem 0.1rem var(--block-box-shadow-color);
 }

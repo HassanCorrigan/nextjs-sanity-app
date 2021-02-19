@@ -1,17 +1,17 @@
 .header {
+  position: fixed;
+  top: 1%;
+  left: 1%;
+  right: 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: var(--secondary-bg-color);
+}
+.logo {
+  cursor: pointer;
 }
 .header nav a {
   display: inline-block;
   padding: 0.5rem;
   margin: 0 0.25rem;
-  color: var(--main-color);
-  text-decoration: none;
-}
-.header nav a:hover {
-  text-decoration: underline;
 }
