@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
-import styles from 'styles/posts.module.css';
+import styles from 'styles/pages/posts.module.css';
 
 const Posts = ({ posts }) => {
   return (

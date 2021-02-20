@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import styles from 'styles/header.module.css';
+import styles from 'styles/components/header.module.css';
 
 const Header = () => {
   return (
-    <header className={`${styles.header} block`}>
+    <header className={`block ${styles.header}`}>
       <Link href='/'>
         <h1 className={styles.logo}>Logo</h1>
       </Link>

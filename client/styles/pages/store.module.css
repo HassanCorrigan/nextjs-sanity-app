@@ -1,0 +1,67 @@
+.storeSection {
+  padding: 1rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.productPhoto {
+  border-radius: var(--block-border-radius);
+}
+
+.productBody {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productInfo {
+  padding: 1rem 0;
+}
+.productInfo .name {
+  font-weight: 600;
+  font-size: 1.75rem;
+  padding-bottom: 1.5rem;
+}
+.productInfo .description {
+  padding-bottom: 1.5rem;
+}
+
+.productActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.productActions .price {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.productActions .addToCartBtn {
+  border: none;
+  padding: 0.75rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-bg-color);
+  background-color: var(--highlight-color);
+  border-radius: var(--block-border-radius);
+  font-size: 1.2rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  z-index: 2;
+}
+.productActions .addToCartBtn svg {
+  margin-right: 0.5rem;
+}

@@ -5,7 +5,7 @@
   --primary-bg-color: rgb(238, 238, 238);
   --secondary-color: rgb(48, 48, 48);
   --secondary-bg-color: rgb(255, 255, 255);
-  --highlight-color: rgb(0, 0, 0);
+  --highlight-color: rgb(222, 78, 60);
   --block-border-radius: 1rem;
   --block-box-shadow-color: rgb(211, 211, 211);
 }
@@ -34,7 +34,7 @@ body {
 
 main {
   margin-top: 6rem;
-  min-height: 90vh;
+  min-height: 85vh;
 }
 
 h1 {
@@ -61,6 +61,12 @@ a {
 
 img {
   width: 100%;
+}
+
+input,
+button {
+  font-size: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .block {

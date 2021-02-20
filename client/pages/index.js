@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
-import styles from 'styles/index.module.css';
+import styles from 'styles/pages/index.module.css';
 
 const Home = ({ recentPosts, featuredProducts }) => {
   return (
@@ -75,6 +75,21 @@ const Home = ({ recentPosts, featuredProducts }) => {
                   <p className={styles.name}>{product.name}</p>
                   <p className={styles.price}>&euro;{product.price}</p>
                   <p>{product.description}</p>
+                  <svg
+                    className={styles.arrow}
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20'
+                    height='20'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    id='ArrowRight'>
+                    <path d='M4 12h16' />
+                    <path d='M13 5l7 7-7 7' />
+                  </svg>
                 </div>
               </div>
             </Link>

@@ -1,6 +1,6 @@
 import Client from 'config/sanity';
 import Layout from 'components/Layout';
-import styles from 'styles/product.module.css';
+import styles from 'styles/pages/product.module.css';
 
 const Product = ({ product }) => {
   const { name, photo, description, price } = product;

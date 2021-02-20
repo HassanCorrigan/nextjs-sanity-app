@@ -2,7 +2,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
-import styles from 'styles/post.module.css';
+import styles from 'styles/pages/post.module.css';
 
 const Post = ({ post }) => {
   const { title, date, author, cover, content } = post;

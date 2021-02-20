@@ -59,10 +59,11 @@
   width: 50%;
 }
 .productInfo {
+  position: relative;
   padding: 0 1rem;
 }
 .productInfo p {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 .productInfo .name {
   font-weight: 600;
@@ -70,4 +71,10 @@
 }
 .productInfo .price {
   color: var(--highlight-color);
+}
+.productInfo .arrow {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  color: var(--primary-color);
 }
