@@ -1,16 +1,31 @@
-.cartBtn {
+.container {
   position: fixed;
   bottom: 1%;
   right: 1%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  place-content: center;
-  padding: 1.5rem;
-  border-radius: 50%;
-  cursor: pointer;
+  min-width: 3rem;
+  min-height: 3rem;
   z-index: 3;
 }
-.cartIcon {
-  margin-top: 0.25rem;
+.cartBtn {
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  place-content: center;
+  color: var(--highlight-color);
+  padding: 1.5rem;
+  cursor: pointer;
+}
+.badge {
+  position: absolute;
+  top: -0.75rem;
+  left: -0.75rem;
+  padding: 0.75rem;
+  color: var(--secondary-bg-color);
+  background-color: var(--highlight-color);
+  border-radius: 50%;
+  display: flex;
+  place-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
 }

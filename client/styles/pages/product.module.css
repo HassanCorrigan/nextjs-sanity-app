@@ -1,0 +1,29 @@
+.productSection {
+  padding: 2rem 1rem;
+}
+
+.productPhoto {
+  border-radius: var(--block-border-radius);
+}
+
+.productDetails {
+  margin: 1rem 0 1.5rem 0;
+  padding: 1.5rem 1rem;
+}
+.name {
+  padding-bottom: 1rem;
+}
+.description {
+  padding-bottom: 1rem;
+}
+.price {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.addToCartBtn {
+  width: 100%;
+}
+.addToCartBtn svg {
+  margin-right: 0.5rem;
+}

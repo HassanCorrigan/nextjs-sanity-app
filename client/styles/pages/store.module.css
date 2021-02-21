@@ -11,7 +11,6 @@
 .product {
   display: flex;
   flex-direction: column;
-
   padding: 1rem;
   cursor: pointer;
 }
@@ -49,17 +48,8 @@
   font-weight: 500;
 }
 .productActions .addToCartBtn {
-  border: none;
   padding: 0.75rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  color: var(--primary-bg-color);
-  background-color: var(--highlight-color);
-  border-radius: var(--block-border-radius);
   font-size: 1.2rem;
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
   z-index: 2;
 }
 .productActions .addToCartBtn svg {

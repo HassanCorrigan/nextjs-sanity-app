@@ -67,6 +67,7 @@ input,
 button {
   font-size: 1.5rem;
   font-family: 'Quicksand', sans-serif;
+  outline: none;
 }
 
 .block {
@@ -75,4 +76,21 @@ button {
   padding: 0.75rem;
   border-radius: var(--block-border-radius);
   box-shadow: 0.1rem 0.1rem 1rem 0.1rem var(--block-box-shadow-color);
+}
+
+.btn {
+  color: var(--primary-bg-color);
+  background-color: var(--highlight-color);
+  padding: 1rem;
+  border-radius: var(--block-border-radius);
+  box-shadow: 0.1rem 0.1rem 1rem 0.1rem var(--block-box-shadow-color);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  place-content: center;
+}
+.btn[disabled] {
+  filter: opacity(0.5);
+  cursor: default;
 }

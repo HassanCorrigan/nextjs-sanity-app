@@ -1,0 +1,40 @@
+.postSection {
+  padding: 2rem 1rem;
+}
+.title {
+  line-height: 4rem;
+}
+
+.cover {
+  border-radius: var(--block-border-radius);
+  margin: 1.5rem 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.meta .profilePhoto {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.meta .author {
+  font-weight: 600;
+  padding: 0.1rem 0;
+}
+.meta .date {
+  color: var(--secondary-color);
+  padding: 0.1rem 0;
+}
+
+.content {
+  margin: 1rem 0;
+}
+
+.content img,
+.content p {
+  margin: 1rem 0;
+}

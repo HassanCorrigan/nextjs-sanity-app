@@ -9,13 +9,24 @@ const Post = ({ post }) => {
 
   return (
     <Layout>
-      <section>
+      <section className={styles.postSection}>
         <article className={styles.post}>
           <h1 className={styles.title}>{title}</h1>
-          <span className={styles.meta}>
-            {formatDate(date)} - {author}
-          </span>
+
           <img className={styles.cover} src={cover} alt='' />
+
+          <div className={`block ${styles.meta}`}>
+            <img
+              className={styles.profilePhoto}
+              src={author.photo}
+              alt='Author profile photo'
+            />
+            <div>
+              <p className={styles.author}>{author.name}</p>
+              <p className={styles.date}>{formatDate(date)}</p>
+            </div>
+          </div>
+
           <BlockContent className={styles.content} blocks={content} />
         </article>
       </section>
@@ -40,7 +51,7 @@ export async function getStaticProps({ params }) {
         ..., "_key": _id
       }
     }, 
-    "author": author->name, 
+    author->{name, "photo": photo.asset->url}, 
     date
   }`;
 

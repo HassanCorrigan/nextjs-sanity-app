@@ -1,14 +1,12 @@
 import Link from 'next/link';
 import Client from 'config/sanity';
+import { useStoreContext } from 'context/StoreContext';
 import Layout from 'components/Layout';
 import CartButton from 'components/CartButton';
 import styles from 'styles/pages/store.module.css';
 
 const Store = ({ products }) => {
-  const handleAddToCart = e => {
-    e.preventDefault();
-    console.log('Clicked');
-  };
+  const { addProduct } = useStoreContext();
 
   return (
     <Layout>
@@ -32,8 +30,12 @@ const Store = ({ products }) => {
                   <div className={styles.productActions}>
                     <p className={styles.price}>&euro;{product.price}</p>
                     <button
-                      onClick={handleAddToCart}
-                      className={styles.addToCartBtn}>
+                      onClick={e => {
+                        e.preventDefault();
+                        addProduct(product);
+                      }}
+                      className={`btn ${styles.addToCartBtn}`}
+                      disabled={!product.stock}>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
                         width='16'
@@ -48,7 +50,11 @@ const Store = ({ products }) => {
                         <path d='M4.051 8.92A1 1 0 015.048 8h13.904a1 1 0 01.997.92l.877 10.92A2 2 0 0118.833 22H5.167a2 2 0 01-1.993-2.16L4.05 8.92z' />
                         <path d='M16 11V6a4 4 0 00-4-4v0a4 4 0 00-4 4v5' />
                       </svg>
-                      <span>Add to cart</span>
+                      {product.stock ? (
+                        <span>Add To Cart</span>
+                      ) : (
+                        <span>Sold Out</span>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -56,15 +62,15 @@ const Store = ({ products }) => {
             </Link>
           ))}
         </div>
-        <CartButton />
       </section>
+      <CartButton />
     </Layout>
   );
 };
 
 export async function getStaticProps() {
   const query =
-    '*[_type=="product"]{_id, "image": image.asset->url, name, description, price} | order(date desc)';
+    '*[_type=="product"]{_id, "image": image.asset->url, name, description, price, stock} | order(date desc)';
   const products = await Client.fetch(query);
 
   return {

@@ -73,8 +73,8 @@ const Home = ({ recentPosts, featuredProducts }) => {
                 />
                 <div className={styles.productInfo}>
                   <p className={styles.name}>{product.name}</p>
-                  <p className={styles.price}>&euro;{product.price}</p>
                   <p>{product.description}</p>
+                  <p className={styles.price}>&euro;{product.price}</p>
                   <svg
                     className={styles.arrow}
                     xmlns='http://www.w3.org/2000/svg'

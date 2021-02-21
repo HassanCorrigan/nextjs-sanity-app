@@ -1,0 +1,26 @@
+.cartSection {
+  padding: 2rem 1rem;
+}
+
+.product {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkoutBtn {
+  width: 100%;
+}
+
+.emptyCartMessage {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+.emptyCartMessage > * {
+  padding: 0.5rem;
+}
