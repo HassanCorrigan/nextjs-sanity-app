@@ -5,10 +5,14 @@ import styles from 'styles/components/cart-button.module.css';
 
 const CartButton = () => {
   const { cartItems } = useStoreContext();
-  const [itemNumber, setItemNumber] = useState(0);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
-    setItemNumber(cartItems.length);
+    let total = 0;
+    cartItems.map(product => {
+      total += product.quantity;
+    });
+    setQuantity(total);
   }, [cartItems]);
 
   return (
@@ -29,7 +33,7 @@ const CartButton = () => {
             <path d='M4.051 8.92A1 1 0 015.048 8h13.904a1 1 0 01.997.92l.877 10.92A2 2 0 0118.833 22H5.167a2 2 0 01-1.993-2.16L4.05 8.92z' />
             <path d='M16 11V6a4 4 0 00-4-4v0a4 4 0 00-4 4v5' />
           </svg>
-          {itemNumber > 0 && <div className={styles.badge}>{itemNumber}</div>}
+          {quantity > 0 && <div className={styles.badge}>{quantity}</div>}
         </div>
       </div>
     </Link>

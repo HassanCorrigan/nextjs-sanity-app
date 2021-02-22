@@ -5,7 +5,7 @@ import Layout from 'components/Layout';
 import styles from 'styles/pages/cart.module.css';
 
 const Cart = () => {
-  const { cartItems, removeProduct } = useStoreContext();
+  const { cartItems, removeProduct, updateQuantity } = useStoreContext();
   const [products, setProducts] = useState(cartItems);
 
   useEffect(() => {
@@ -19,9 +19,28 @@ const Cart = () => {
         <div className={styles.products}>
           {products.map(product => (
             <div className={`block ${styles.product}`} key={product._id}>
-              <p>{product.name}</p>
+              <img
+                className={styles.productPhoto}
+                src={`${product.image}?w=200&h=200&fit=crop&crop=center`}
+                alt={`${product.name} product photo`}
+              />
+              <Link href={`/store/${product._id}`}>
+                <a className={styles.name}>{product.name}</a>
+              </Link>
+              <p className={styles.price}>&euro;{product.price}</p>
+              <input
+                className={styles.quantityInput}
+                type='number'
+                name='quantity'
+                value={product.quantity}
+                min='1'
+                max='10'
+                onChange={e =>
+                  updateQuantity(product._id, Number(e.target.value))
+                }
+              />
               <button
-                className={`btn`}
+                className={`btn ${styles.removeBtn}`}
                 onClick={() => removeProduct(product._id)}>
                 Remove
               </button>
