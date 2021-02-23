@@ -12,11 +12,13 @@ const Product = ({ product }) => {
     <Layout>
       <section className={styles.productSection}>
         <img className={styles.productPhoto} src={photo} alt={name} />
+
         <div className={`block ${styles.productDetails}`}>
           <h1 className={styles.name}>{name}</h1>
           <p className={styles.description}>{description}</p>
           <p className={styles.price}>&euro;{price}</p>
         </div>
+
         <button
           onClick={() => addProduct(product)}
           className={`btn ${styles.addToCartBtn}`}
@@ -53,11 +55,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const query = `*[_type=="product" && _id=="${params.product}"] {_id, "photo": image.asset->url, name, description, price, stock}`;
-  const product = await Client.fetch(query);
+  const [product] = await Client.fetch(query);
 
   return {
     props: {
-      product: product[0],
+      product,
     },
   };
 }

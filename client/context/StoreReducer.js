@@ -1,19 +1,20 @@
 const StoreReducer = (state, action) => {
   switch (action.type) {
     case 'SET_CART':
-      // Set the inital cart state from local storage
+      /** Set cartItems from the passed in payload. */
       return {
         ...state,
         cartItems: action.payload,
       };
 
     case 'ADD_PRODUCT':
-      // Check if product is already in cart
+      /** Check if product is already in cart. */
       const alreadyExists = state.cartItems.some(
         product => product._id === action.payload._id
       );
+
       if (alreadyExists) {
-        // If it's already in cart, update the quantity by adding 1
+        /** If product already exists in cart, update the quantity by incrementing by 1. */
         return {
           ...state,
           cartItems: state.cartItems.map(product =>
@@ -23,7 +24,7 @@ const StoreReducer = (state, action) => {
           ),
         };
       } else {
-        // Otherwise, add the item to the cart with a new quantity value of 1.
+        /** Otherwise, add the new item to the cart with a new quantity value of 1. */
         return {
           ...state,
           cartItems: [{ ...action.payload, quantity: 1 }, ...state.cartItems],
@@ -31,7 +32,7 @@ const StoreReducer = (state, action) => {
       }
 
     case 'REMOVE_PRODUCT':
-      // Filter array and return new array without specific item.
+      /** Filter cartItems array and return new array without specific item. */
       return {
         ...state,
         cartItems: state.cartItems.filter(
@@ -40,7 +41,8 @@ const StoreReducer = (state, action) => {
       };
 
     case 'UPDATE_QUANTITY':
-      // Update by finding the product and setting the new quantity as the passed payload
+      /** Update quantity by finding the specific product and
+       * setting the new quantity from the passed in payload. */
       return {
         ...state,
         cartItems: state.cartItems.map(product =>

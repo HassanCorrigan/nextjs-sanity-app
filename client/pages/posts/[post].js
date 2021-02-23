@@ -21,6 +21,7 @@ const Post = ({ post }) => {
               src={author.photo}
               alt='Author profile photo'
             />
+
             <div>
               <p className={styles.author}>{author.name}</p>
               <p className={styles.date}>{formatDate(date)}</p>
@@ -55,11 +56,11 @@ export async function getStaticProps({ params }) {
     date
   }`;
 
-  const post = await Client.fetch(query);
+  const [post] = await Client.fetch(query);
 
   return {
     props: {
-      post: post[0],
+      post,
     },
   };
 }

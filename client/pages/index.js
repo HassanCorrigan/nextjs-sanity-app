@@ -32,6 +32,7 @@ const Home = ({ recentPosts, featuredProducts }) => {
       </section>
       <section className={styles.recentPostsSection}>
         <h1>Recent Posts</h1>
+
         <div className={styles.posts}>
           {recentPosts.map((post, index) => (
             <Link href={`/posts/${post.slug}`} key={index}>
@@ -43,12 +44,14 @@ const Home = ({ recentPosts, featuredProducts }) => {
                 />
                 <div className={styles.postContent}>
                   <p className={styles.postTitle}>{post.title}</p>
+
                   <div className={styles.postMeta}>
                     <img
                       className={styles.profilePhoto}
                       src={`${post.author.photo}?w=50&h=50&fit=crop&crop=center`}
                       alt='Post author profile photo'
                     />
+
                     <div>
                       <p className={styles.author}>{post.author.name}</p>
                       <p className={styles.date}>{formatDate(post.date)}</p>
@@ -60,8 +63,10 @@ const Home = ({ recentPosts, featuredProducts }) => {
           ))}
         </div>
       </section>
+
       <section className={styles.featuredProductsSection}>
         <h1>Featured Products</h1>
+
         <div>
           {featuredProducts.map(product => (
             <Link href={`/store/${product._id}`} key={product._id}>
@@ -71,6 +76,7 @@ const Home = ({ recentPosts, featuredProducts }) => {
                   src={`${product.productPhoto}?w=200&h=200&fit=crop&crop=center`}
                   alt=''
                 />
+
                 <div className={styles.productInfo}>
                   <p className={styles.name}>{product.name}</p>
                   <p>{product.description}</p>

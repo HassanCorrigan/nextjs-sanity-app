@@ -7,12 +7,13 @@ const CartButton = () => {
   const { cartItems } = useStoreContext();
   const [quantity, setQuantity] = useState(0);
 
+  /** Set the quantity of items in the cart as the total quanity
+   *  of products currently in the store-context. */
   useEffect(() => {
-    let total = 0;
-    cartItems.map(product => {
-      total += product.quantity;
-    });
-    setQuantity(total);
+    const quantity = cartItems.reduce((accumulator, product) => {
+      return accumulator + product.quantity;
+    }, 0);
+    setQuantity(quantity);
   }, [cartItems]);
 
   return (

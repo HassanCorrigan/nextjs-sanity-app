@@ -12,6 +12,7 @@ const Store = ({ products }) => {
     <Layout>
       <section className={styles.storeSection}>
         <h1>Store</h1>
+
         <div className={styles.products}>
           {products.map(product => (
             <Link href={`/store/${product._id}`} key={product._id}>
@@ -21,6 +22,7 @@ const Store = ({ products }) => {
                   src={`${product.image}?w=200&h=200&fit=crop&crop=center`}
                   alt=''
                 />
+
                 <div className={styles.productBody}>
                   <div className={styles.productInfo}>
                     <p className={styles.name}>{product.name}</p>

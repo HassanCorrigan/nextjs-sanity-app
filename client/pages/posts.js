@@ -9,20 +9,23 @@ const Posts = ({ posts }) => {
     <Layout>
       <section className={styles.postsSection}>
         <h1>Posts</h1>
+
         <div className={styles.posts}>
           {posts.map((post, index) => (
             <Link href={`/posts/${post.slug}`} key={index}>
               <div className={`block ${styles.post}`}>
                 <img className={styles.coverImage} src={post.cover} alt='' />
+
                 <div className={styles.postContent}>
                   <h2 className={styles.title}>{post.title}</h2>
-                  <p className={styles.astract}>{}</p>
+
                   <div className={styles.meta}>
                     <img
                       className={styles.profilePhoto}
                       src={`${post.author.photo}?w=50&h=50&fit=crop&crop=center`}
                       alt='Post author profile photo'
                     />
+
                     <div>
                       <p className={styles.author}>{post.author.name}</p>
                       <p className={styles.date}>{formatDate(post.date)}</p>

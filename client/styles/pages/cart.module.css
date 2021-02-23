@@ -32,6 +32,15 @@
   font-weight: 500;
 }
 
+.total {
+  margin: 1rem 0;
+  padding: 1.5rem 1rem;
+  font-weight: 500;
+}
+.total span {
+  color: var(--highlight-color);
+}
+
 .checkoutBtn {
   width: 100%;
   font-weight: 500;

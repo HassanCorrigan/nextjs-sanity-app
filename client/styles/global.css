@@ -64,7 +64,8 @@ img {
 }
 
 input,
-button {
+button,
+textarea {
   font-size: 1.5rem;
   font-family: 'Quicksand', sans-serif;
   outline: none;
@@ -89,6 +90,12 @@ button {
   cursor: pointer;
   display: flex;
   place-content: center;
+}
+.btn:hover {
+  filter: brightness(1.05);
+}
+.btn:active {
+  filter: brightness(0.9);
 }
 .btn[disabled] {
   filter: opacity(0.5);
