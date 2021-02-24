@@ -48,7 +48,7 @@ const Home = ({ recentPosts, featuredProducts }) => {
                   <div className={styles.postMeta}>
                     <img
                       className={styles.profilePhoto}
-                      src={`${post.author.photo}?w=50&h=50&fit=crop&crop=center`}
+                      src={`${post.author.photo}?w=120&h=120&fit=crop&crop=center`}
                       alt='Post author profile photo'
                     />
 
@@ -67,35 +67,37 @@ const Home = ({ recentPosts, featuredProducts }) => {
       <section className={styles.featuredProductsSection}>
         <h1>Featured Products</h1>
 
-        <div>
+        <div className={styles.products}>
           {featuredProducts.map(product => (
             <Link href={`/store/${product._id}`} key={product._id}>
               <div className={`block ${styles.product}`}>
                 <img
                   className={styles.productPhoto}
-                  src={`${product.productPhoto}?w=200&h=200&fit=crop&crop=center`}
+                  src={`${product.productPhoto}?w=900&h=900&fit=crop&crop=center`}
                   alt=''
                 />
 
                 <div className={styles.productInfo}>
                   <p className={styles.name}>{product.name}</p>
-                  <p>{product.description}</p>
-                  <p className={styles.price}>&euro;{product.price}</p>
-                  <svg
-                    className={styles.arrow}
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='20'
-                    height='20'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    id='ArrowRight'>
-                    <path d='M4 12h16' />
-                    <path d='M13 5l7 7-7 7' />
-                  </svg>
+                  <p className={styles.description}>{product.description}</p>
+                  <div className={styles.productActions}>
+                    <p className={styles.price}>&euro;{product.price}</p>
+                    <svg
+                      className={styles.arrow}
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20'
+                      height='20'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      id='ArrowRight'>
+                      <path d='M4 12h16' />
+                      <path d='M13 5l7 7-7 7' />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </Link>

@@ -5,7 +5,7 @@
   --primary-bg-color: rgb(238, 238, 238);
   --secondary-color: rgb(48, 48, 48);
   --secondary-bg-color: rgb(255, 255, 255);
-  --highlight-color: rgb(222, 78, 60);
+  --highlight-color: rgb(206, 73, 56);
   --block-border-radius: 1rem;
   --block-box-shadow-color: rgb(211, 211, 211);
 }
@@ -33,8 +33,9 @@ body {
 }
 
 main {
-  margin-top: 6rem;
   min-height: 85vh;
+  max-width: 960px;
+  margin: 6rem auto auto;
 }
 
 h1 {
@@ -80,7 +81,7 @@ textarea {
 }
 
 .btn {
-  color: var(--primary-bg-color);
+  color: var(--secondary-bg-color);
   background-color: var(--highlight-color);
   padding: 1rem;
   border-radius: var(--block-border-radius);

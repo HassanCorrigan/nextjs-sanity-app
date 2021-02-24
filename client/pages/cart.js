@@ -49,6 +49,7 @@ const Cart = () => {
                 className={styles.quantityInput}
                 type='number'
                 name='quantity'
+                aria-label='quantity'
                 value={product.quantity}
                 min='1'
                 max='10'

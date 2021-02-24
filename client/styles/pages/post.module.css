@@ -34,7 +34,9 @@
   margin: 1rem 0;
 }
 
-.content img,
 .content p {
   margin: 1rem 0;
+}
+.content li {
+  margin: 0 2.5rem;
 }

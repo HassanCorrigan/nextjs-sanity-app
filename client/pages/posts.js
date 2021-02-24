@@ -22,7 +22,7 @@ const Posts = ({ posts }) => {
                   <div className={styles.meta}>
                     <img
                       className={styles.profilePhoto}
-                      src={`${post.author.photo}?w=50&h=50&fit=crop&crop=center`}
+                      src={`${post.author.photo}?w=120&h=120&fit=crop&crop=center`}
                       alt='Post author profile photo'
                     />
 
