@@ -2,7 +2,7 @@
 
 ## A app built using Next.js on the front-end and Sanity CMS for API requests.
 
-A minimal, re-usable app with a clean UI which uses Next.js for the font-end and Sanity CMS for API requests. Features a blog and online store, including a persistant shopping cart and checkout summary.
+A minimal, re-usable app with a clean UI which uses Next.js for the font-end and Sanity CMS for API requests. Features a blog and online store, including a persistent shopping cart and checkout summary.
 
 Supports setting featured products on the home page as well as the displaying the latest posts. Setting an item as 'sold out' will prevent a user from adding the item to the cart and also remove it from the featured section.
 
@@ -17,17 +17,18 @@ The project is seperated into a client folder for the front-end and studio folde
 Set environment variables:
 
 ```
-SANITY_PROJECT_ID # e.g. abcd12xz
-SANITY_PROJECT_DATASET # e.g. production
+SANITY_STUDIO_API_PROJECT_ID # e.g. abcd12xz
+SANITY_STUDIO_API_DATASET # e.g. production
 ```
 
 ### Studio
 
-Update [sanity.json](studio/sanity.json) with:
+Set environment variables:
 
-**projectId** (e.g. abcd12xz)
-
-**dataset** (e.g. production)
+```
+SANITY_STUDIO_API_PROJECT_ID # e.g. abcd12xz
+SANITY_STUDIO_API_DATASET # e.g. production
+```
 
 ---
 

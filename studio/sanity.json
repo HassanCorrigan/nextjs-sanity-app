@@ -3,10 +3,6 @@
   "project": {
     "name": "nextjs-sanity-app"
   },
-  "api": {
-    "projectId": "bfrf90lz",
-    "dataset": "production"
-  },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
@@ -16,9 +12,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
