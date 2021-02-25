@@ -1,7 +1,7 @@
 .container {
   position: fixed;
   bottom: 1%;
-  right: 1%;
+  right: 2%;
   min-width: 3rem;
   min-height: 3rem;
   z-index: 3;
@@ -12,7 +12,7 @@
   display: flex;
   place-content: center;
   color: var(--highlight-color);
-  padding: 1.5rem;
+  padding: 1.75rem;
   cursor: pointer;
   transform: rotate(0);
 }
@@ -37,6 +37,7 @@
   min-width: 1.5rem;
   min-height: 1.5rem;
   line-height: 1.5rem;
+  font-weight: 500;
 }
 
 @keyframes animateCartBtn {

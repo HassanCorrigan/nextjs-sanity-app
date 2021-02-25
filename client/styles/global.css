@@ -7,7 +7,7 @@
   --secondary-bg-color: rgb(255, 255, 255);
   --highlight-color: rgb(206, 73, 56);
   --block-border-radius: 1rem;
-  --block-box-shadow-color: rgb(211, 211, 211);
+  --block-box-shadow-color: rgba(145, 143, 143, 0.3);
 }
 
 * {
@@ -101,4 +101,25 @@ textarea {
 .btn[disabled] {
   filter: opacity(0.5);
   cursor: default;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 1.75rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: rgb(206, 206, 206);
+    --primary-bg-color: rgb(20, 20, 20);
+    --secondary-color: rgb(153, 152, 152);
+    --secondary-bg-color: rgb(49, 49, 49);
+    --highlight-color: rgb(255, 104, 84);
+    --block-border-radius: 1rem;
+    --block-box-shadow-color: rgba(20, 20, 20, 0.5);
+  }
+  img {
+    filter: brightness(0.9);
+  }
 }

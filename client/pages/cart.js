@@ -13,17 +13,25 @@ const Cart = () => {
     /** Set products in the cart every time cartItems in state changes. */
     setProducts(cartItems);
 
-    /** Calulate the total and set total state */
+    /** Calulate the total in the cart */
     const total = cartItems.reduce((accumulator, product) => {
       return accumulator + product.price * product.quantity;
     }, 0);
-    setTotal(total);
+    /** Round the total in the cart */
+    const roundedTotal = roundTotal(total);
+    /**  Set total to state */
+    setTotal(roundedTotal);
   }, [cartItems]);
 
   const handleCheckoutSubmit = e => {
     e.preventDefault();
     alert(JSON.stringify(products, null, 2));
   };
+
+  /**
+   * @param {number} value - returns value rounded to 2 decimal places
+   */
+  const roundTotal = value => parseFloat(value).toFixed(2);
 
   return (
     <Layout>
