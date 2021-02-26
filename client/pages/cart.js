@@ -45,7 +45,7 @@ const Cart = () => {
             <div className={`block ${styles.product}`} key={product._id}>
               <img
                 className={styles.productPhoto}
-                src={`${product.image}?w=200&h=200&fit=crop&crop=center`}
+                src={`${product.photo}?w=200&h=200&fit=crop&crop=center`}
                 alt={`${product.name} product photo`}
               />
 
