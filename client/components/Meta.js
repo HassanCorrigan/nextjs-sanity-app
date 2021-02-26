@@ -60,7 +60,8 @@ Meta.defaultProps = {
     "A starter template for building a Next.js app using Sanity's CMS.",
   keywords: 'nextjs, sanity, app',
   url: 'https://nextjs-sanity-app-client.vercel.app',
-  image: '/images/opengraph-twitter-card.jpg',
+  image:
+    'https://nextjs-sanity-app-client.vercel.app/images/opengraph-twitter-card.jpg',
   type: 'website',
 };
 
