@@ -1,4 +1,5 @@
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import styles from 'styles/pages/about.module.css';
 
 const About = () => {
@@ -14,6 +15,7 @@ const About = () => {
 
   return (
     <Layout>
+      <Meta title='About' />
       <section className={styles.aboutSection}>
         <h1>About</h1>
         <p>

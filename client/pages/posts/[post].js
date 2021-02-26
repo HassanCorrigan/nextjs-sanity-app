@@ -1,7 +1,9 @@
 import BlockContent from '@sanity/block-content-to-react';
+import PropTypes from 'prop-types';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import styles from 'styles/pages/post.module.css';
 
 const Post = ({ post }) => {
@@ -9,6 +11,7 @@ const Post = ({ post }) => {
 
   return (
     <Layout>
+      <Meta title={title} image={cover} type='article' />
       <section className={styles.postSection}>
         <article className={styles.post}>
           <h1 className={styles.title}>{title}</h1>
@@ -33,6 +36,19 @@ const Post = ({ post }) => {
       </section>
     </Layout>
   );
+};
+
+Post.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    author: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+    }),
+    cover: PropTypes.string.isRequired,
+    content: PropTypes.array.isRequired,
+  }),
 };
 
 export async function getStaticPaths() {

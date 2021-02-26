@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Client from 'config/sanity';
 import { useStoreContext } from 'context/StoreContext';
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import CartButton from 'components/CartButton';
 import styles from 'styles/pages/store.module.css';
 
@@ -10,6 +12,7 @@ const Store = ({ products }) => {
 
   return (
     <Layout>
+      <Meta title='Store' />
       <section className={styles.storeSection}>
         <h1>Store</h1>
 
@@ -19,7 +22,7 @@ const Store = ({ products }) => {
               <div className={`block ${styles.product}`}>
                 <img
                   className={styles.productPhoto}
-                  src={`${product.image}?w=900&h=900&fit=crop&crop=center`}
+                  src={`${product.photo}?w=900&h=900&fit=crop&crop=center`}
                   alt=''
                 />
 
@@ -70,9 +73,25 @@ const Store = ({ products }) => {
   );
 };
 
+Store.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      photo: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      stock: PropTypes.bool,
+    })
+  ),
+};
+
+Store.defaultProps = {
+  products: [],
+};
+
 export async function getStaticProps() {
   const query =
-    '*[_type=="product"]{_id, "image": image.asset->url, name, description, price, stock} | order(date desc)';
+    '*[_type=="product"]{_id, "photo": image.asset->url, name, description, price, stock} | order(date desc)';
   const products = await Client.fetch(query);
 
   return {

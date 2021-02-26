@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useStoreContext } from 'context/StoreContext';
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import styles from 'styles/pages/cart.module.css';
 
 const Cart = () => {
@@ -35,6 +36,7 @@ const Cart = () => {
 
   return (
     <Layout>
+      <Meta title='Cart' />
       <section className={styles.cartSection}>
         <h1>Cart</h1>
 

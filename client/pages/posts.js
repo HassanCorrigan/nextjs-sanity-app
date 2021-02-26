@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import styles from 'styles/pages/posts.module.css';
 
 const Posts = ({ posts }) => {
   return (
     <Layout>
+      <Meta title='Posts' />
       <section className={styles.postsSection}>
         <h1>Posts</h1>
 
@@ -39,6 +42,25 @@ const Posts = ({ posts }) => {
       </section>
     </Layout>
   );
+};
+
+Posts.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      cover: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.shape({
+        name: PropTypes.string,
+        photo: PropTypes.string,
+      }),
+      date: PropTypes.string,
+    })
+  ),
+};
+
+Posts.defaultProps = {
+  posts: [],
 };
 
 export async function getStaticProps() {

@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Client from 'config/sanity';
 import { formatDate } from 'utils/date';
 import Layout from 'components/Layout';
+import Meta from 'components/Meta';
 import styles from 'styles/pages/index.module.css';
 
 const Home = ({ recentPosts, featuredProducts }) => {
   return (
     <Layout>
+      <Meta />
       <section className={styles.welcomeSection}>
         <h1>Home</h1>
         <p>
@@ -73,7 +76,7 @@ const Home = ({ recentPosts, featuredProducts }) => {
               <div className={`block ${styles.product}`}>
                 <img
                   className={styles.productPhoto}
-                  src={`${product.productPhoto}?w=900&h=900&fit=crop&crop=center`}
+                  src={`${product.photo}?w=900&h=900&fit=crop&crop=center`}
                   alt=''
                 />
 
@@ -108,11 +111,35 @@ const Home = ({ recentPosts, featuredProducts }) => {
   );
 };
 
+Home.propTypes = {
+  recentPosts: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      cover: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.shape({
+        name: PropTypes.string,
+        photo: PropTypes.string,
+      }),
+      date: PropTypes.string,
+    })
+  ),
+  featuredProducts: PropTypes.arrayOf(
+    PropTypes.shape({
+      photo: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      stock: PropTypes.bool,
+    })
+  ),
+};
+
 export async function getStaticProps() {
   const postsQuery =
     '*[_type=="post"][0..3]{"slug": slug.current, "cover": cover.asset->url, title, author->{name, "photo": photo.asset->url}, date} | order(date desc)';
   const productsQuery =
-    '*[_type=="product" && featured==true && stock==true]{_id, "productPhoto": image.asset->url, name, description, price}';
+    '*[_type=="product" && featured==true && stock==true]{_id, "photo": image.asset->url, name, description, price}';
 
   const recentPosts = await Client.fetch(postsQuery);
   const featuredProducts = await Client.fetch(productsQuery);
