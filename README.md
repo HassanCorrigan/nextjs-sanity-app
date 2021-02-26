@@ -2,6 +2,8 @@
 
 ## A app built using Next.js on the front-end and Sanity CMS for API requests.
 
+![Next.js/Sanity Promo Image](/client/public/images/opengraph-twitter-card.jpg 'Next.js/Sanity Promo Image')
+
 A minimal, re-usable app with a clean UI which uses Next.js for the font-end and Sanity CMS for API requests. Features a blog and online store, including a persistent shopping cart and checkout summary.
 
 Supports setting featured products on the home page as well as the displaying the latest posts. Setting an item as 'sold out' will prevent a user from adding the item to the cart and also remove it from the featured section.
