@@ -9,7 +9,9 @@
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "dev": "next dev"
+    "dev": "next dev",
+    "clean": "rm -rf .next",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "nextjs",
@@ -20,10 +22,10 @@
   ],
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^2.2.6",
-    "next": "^10.0.7",
+    "@sanity/client": "^2.7.1",
+    "next": "^10.1.3",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
